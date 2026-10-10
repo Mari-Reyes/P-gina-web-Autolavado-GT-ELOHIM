@@ -1,10 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Web Autolavado GT ELOHIM</title>
+    <description><h1>Bienvenido a Autolavado GT ELOHIM</h1></description>
 </head>
+
+<body>
 
     <nav>
         <table>
@@ -16,28 +20,28 @@
         </table>
     </nav>
 
-<body>
     <header>
         <h1>Informacion de contacto</h1>
         <p>Si desea ponerse en contacto con nosotros, puede hacerlo a través de los siguientes medios:</p>
         <img src="contacto.jpg" alt="Contacto" style="max-width: 100%; height: auto;">
     </header>
 
-<hr>
-    <aside>
+    <hr>
+
+    <article>
         <video src="video/demostracion.mp4" controls poster="images/portada.jpg">
             Tu navegador no soporta el reproductor de video.
         </video>. 
-    </aside>
+    </article>
 
-<hr>
+    <hr>
 
     <main>
         <p><strong>Dirección:</strong> Calle 45 5W - 47, Campo hermoso, Bucaramga, Santander</p>
         <p><strong>Teléfono:</strong> +57 (318) 152-0446</p>
     </main>
 
-<hr>
+    <hr>
 
     <section>
         <h2>Nuestras redes sociales</h2>
@@ -58,11 +62,38 @@
             <hr> Visita nuestro establecimiento y disfruta de nuestros servicios de limpieza y mantenimiento de vehículos. Estamos ubicados en una zona de fácil acceso y contamos con estacionamiento para su comodidad.
         </p>
         <iframe src="https://www.google.com/maps/embed?pb=!4v1791646265678!6m8!1m7!1s1MEbwq6tk4zCECGnSmADVA!2m2!1d7.105199634878572!2d-73.13958108222828!3f336.4166361283027!4f-6.152821899395505!5f0.7820865974627469" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-
     </div>
 
-<hr>
+    <hr>
 
-    <footer>
-        <p>© 2024 Autolavado GT ELOHIM. Todos los derechos reservados.</p>
+    <h2>Formulario de reserva de cita</h2>
+        <p>Por favor, complete el siguiente formulario para reservar su cita de lavado de vehículos
+    
+    <form action="/procesar-reserva.php" method="post">
+        <label for="cliente">Nombre completo:</label>
+        <input type="text" id="cliente" name="cliente" placeholder="Ej. Carlos Mendoza" required>
+        <hr>
+        <label for="vehiculo">Marca y modelo del vehículo:</label>
+        <input type="text" id="vehiculo" name="vehiculo" placeholder="Ej. Toyota Corolla 2022" required>
+        <hr>
+        <label for="telefono">Teléfono celular:</label>
+        <input type="tel" id="telefono" name="telefono" placeholder="+57 300 123 4567" required>
+        <hr>
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" placeholder="carlos@email.com" required>
+        <hr>
+        <label for="fecha">Fecha del servicio:</label>
+        <input type="date" id="fecha" name="fecha" required>
+        <hr>
+        <label for="detalles">Detalles especiales o estado del vehículo:</label>
+        <textarea id="detalles" name="detalles" rows="4" placeholder="Ej. Lavado de tapicería, eliminación de manchas de pintura, limpieza de motor..."></textarea>
+        <hr>
+        <button type="submit">Reservar mi cita de lavado</button>
+
+    </form>
+
+<footer>
+        <p>© 2026 Autolavado GT ELOHIM. Todos los derechos reservados.</p>
     </footer>
+</body>
+</html>
