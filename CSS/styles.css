@@ -1,0 +1,66 @@
+
+* {
+    margin: 5px;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+/* Estilos de fuente */
+
+body { background-color: black; color: white; }
+
+@font-face {
+    font-family: "notosans";
+    src: url("../fuentes/notosans.ttf") format("truetype");
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "sora";
+    src: url("../fuentes/sora.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+/* Estilos generales */
+
+h1, h2 {
+    font-family: "notosans", sans-serif;
+    font-weight: 900;
+}
+
+body {
+    font-family: "sora", sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+/* Alineacion de texto */
+
+.centro { text-align: center; }
+sub { vertical-align: sub; }
+
+/* Secciones de tarjetas */
+
+.tarjeta-texto2, .tarjeta-texto1{ 
+    width: 100%;
+    max-width: 320px;
+    padding: 20px;
+    margin: 16px auto;
+    overflow-wrap: break-word
+}
+
+.tarjeta-texto1 { 
+    border: 4px solid #000000;
+    border-radius: 100px;
+    background-color: #8B0000; 
+}
+
+.tarjeta-texto2 { 
+    border: 4px solid #000000;
+    border-radius: 50px;
+    background-color: #be1a1a; 
+}
