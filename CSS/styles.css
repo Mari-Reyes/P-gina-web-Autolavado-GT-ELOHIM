@@ -1,66 +1,770 @@
 
-* {
-    margin: 5px;
-    padding: 1px;
-    box-sizing: border-box;
+/* ============================================
+   AUTOLAVADO GT ELOHIM - styles.css
+   Cambia estos colores por los del boceto
+   ============================================ */
+:root {
+  --principal: #d11f1f;
+  --principal-oscuro: #961616;
+  --oscuro: #3f1212;
+  --claro: #f3f6fa;
+  --texto: #563a3a;
+  --radio: 12px;
+  --sombra: 0 4px 18px rgba(18, 38, 63, .12);
+  --ancho: 1100px;
 }
 
-/* Estilos de fuente */
-
-body { background-color: black; color: white; }
-
-@font-face {
-    font-family: "notosans";
-    src: url("../fuentes/notosans.ttf") format("truetype");
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: "sora";
-    src: url("../fuentes/sora.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-}
-
-
-/* Estilos generales */
-
-h1, h2 {
-    font-family: "notosans", sans-serif;
-    font-weight: 900;
-}
+/* ---------- BASE ---------- */
+* { box-sizing: border-box; }
 
 body {
-    font-family: "sora", sans-serif;
-    font-weight: 400;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--texto);
+  line-height: 1.7;
+  background: #000;
 }
 
-/* Alineacion de texto */
+img { max-width: 100%; }
+a { color: var(--principal); text-decoration: none; }
+a:hover { color: var(--principal-oscuro); }
 
-.centro { text-align: center; }
-sub { vertical-align: sub; }
+h1, h2, h3 { color: var(--oscuro); line-height: 1.25; }
 
-/* Secciones de tarjetas */
-
-.tarjeta-texto2, .tarjeta-texto1{ 
-    width: 100%;
-    max-width: 320px;
-    padding: 20px;
-    margin: 16px auto;
-    overflow-wrap: break-word
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0 0 28px;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: var(--principal);
+  border-radius: 4px;
 }
 
-.tarjeta-texto1 { 
-    border: 4px solid #000000;
-    border-radius: 100px;
-    background-color: #8B0000; 
+/* Los <hr> y <br> sueltos entre secciones se ocultan:
+   las secciones se separan con colores de fondo */
+body > hr, body > br { display: none; }
+
+hr {
+  border: 0;
+  border-top: 1px solid #dfe5ec;
+  margin: 16px 0;
 }
 
-.tarjeta-texto2 { 
-    border: 4px solid #000000;
-    border-radius: 50px;
-    background-color: #be1a1a; 
+/* ---------- BANNER SUPERIOR (<description> con el h1) ---------- */
+body > description {
+  display: block;
+  background: var(--oscuro);
+  padding: 10px 20px;
+  text-align: center;
+}
+body > description h1 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* ---------- NAVBAR ---------- */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .10);
+}
+nav table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+nav td { padding: 0; }
+nav a {
+  display: block;
+  padding: 18px 28px;
+  color: var(--oscuro);
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  transition: .2s;
+}
+nav a:hover {
+  color: var(--principal);
+  border-bottom-color: var(--principal);
+}
+
+/* ---------- PORTADA (header con el logo/imagen grande) ---------- */
+header { background: var(--oscuro); }
+header img {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;      /* si es solo un logo pequeño, cámbialo a "contain" */
+  margin: 0 auto;
+}
+
+/* ---------- ESPACIADO Y FONDOS DE CADA BLOQUE ---------- */
+body > section,
+body > article,
+body > aside,
+body > main,
+body > div {
+  padding: 64px max(20px, calc((100% - var(--ancho)) / 2));
+}
+
+body > article,
+body > aside,
+body > section:nth-of-type(3) { background: var(--claro); }
+
+/* ---------- 1) SOBRE NOSOTROS / META (imagen + tarjetas) ---------- */
+body > section:first-of-type {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 40px;
+  row-gap: 0;
+}
+body > section:first-of-type > img {
+  grid-row: span 2;
+  width: 100%;
+  height: 100% !important;       /* anula el style="height:auto" del HTML */
+  min-height: 280px;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin-bottom: 40px;
+}
+
+.tarjeta-texto1 {
+  align-self: end;
+  background: var(--principal);
+  border-radius: var(--radio) var(--radio) 0 0;
+  padding: 22px 28px 14px;
+}
+.tarjeta-texto1 h2 {
+  margin: 0;
+  text-align: left;
+  color: #fff;
+  font-size: 1.6rem;
+}
+.tarjeta-texto1 h2::after { display: none; }
+
+.tarjeta-texto2 {
+  align-self: start;
+  background: #fff;
+  border-radius: 0 0 var(--radio) var(--radio);
+  padding: 20px 28px 28px;
+  box-shadow: var(--sombra);
+  margin-bottom: 40px;
+}
+.tarjeta-texto2 p { margin: 0; }
+
+/* ---------- 2) QUIÉNES SOMOS ---------- */
+.tarjeta-texto3 h2 { margin-bottom: 20px; }
+.tarjeta-texto4 {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.1rem;
+}
+.tarjeta-texto4 p { margin: 0 0 10px; }
+
+/* ---------- BOTONES (todos los <button>) ---------- */
+form { text-align: center; margin-top: 28px; }
+
+button {
+  background: var(--principal);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 14px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: .2s;
+}
+button:hover {
+  background: var(--principal-oscuro);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(31, 111, 209, .35);
+}
+
+/* ---------- 3) SERVICIOS (collage de fotos) ---------- */
+.collage2 {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 190px);
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.foto2 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform .3s;
+}
+.foto2:hover { transform: scale(1.03); }
+.foto2--grande {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.foto2--vertical { grid-row: span 2; }
+
+body > section:nth-of-type(2) > p {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+body > section:nth-of-type(2) ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+body > section:nth-of-type(2) li {
+  background: var(--claro);
+  color: var(--oscuro);
+  font-weight: 600;
+  padding: 10px 26px;
+  border-radius: 50px;
+  border: 2px solid var(--principal);
+}
+
+/* ---------- 4) MÉTODOS DE PAGO (tarjetas numeradas) ---------- */
+aside > p {
+  text-align: center;
+  font-size: 1.1rem;
+  margin: 0 0 30px;
+}
+aside br { display: none; }
+aside ul {
+  list-style: none;
+  counter-reset: paso;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 22px;
+}
+aside li {
+  counter-increment: paso;
+  background: #fff;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  padding: 28px 18px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--oscuro);
+}
+aside li::before {
+  content: counter(paso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: var(--principal);
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* ---------- 5) TESTIMONIOS (3 tarjetas) ---------- */
+main > p {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+main abbr { text-decoration: none; }
+
+main blockquote {
+  margin: 36px 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr auto;
+  grid-auto-flow: column;
+  column-gap: 24px;
+}
+main blockquote hr { display: none; }
+
+main blockquote img {
+  width: 100%;
+  height: 220px !important;
+  object-fit: cover;
+  border-radius: var(--radio) var(--radio) 0 0;
+}
+main blockquote p {
+  margin: 0;
+  padding: 22px 24px 10px;
+  background: var(--claro);
+}
+main blockquote small {
+  display: block;
+  padding: 0 24px 22px;
+  background: var(--claro);
+  border-radius: 0 0 var(--radio) var(--radio);
+  color: var(--oscuro);
+}
+mark {
+  background: #ffd84d;
+  color: var(--oscuro);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* ---------- 6) HORARIOS (tabla) ---------- */
+body > section:nth-of-type(3) table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #fff;
+  box-shadow: var(--sombra);
+  border-radius: var(--radio);
+  overflow: hidden;
+  min-width: 340px;
+}
+body > section:nth-of-type(3) th,
+body > section:nth-of-type(3) td {
+  border: 1px solid #dfe5ec;
+  padding: 16px 22px;
+  text-align: center;
+}
+body > section:nth-of-type(3) table h3 {
+  margin: 0;
+  color: #fff;
+}
+body > section:nth-of-type(3) tr:first-child th {
+  background: var(--principal);
+  border-color: var(--principal);
+}
+body > section:nth-of-type(3) th { color: var(--oscuro); }
+
+/* ---------- 7) UBICACIÓN + MAPA ---------- */
+body > div { text-align: center; }
+body > div cite {
+  display: block;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--oscuro);
+}
+body > div hr {
+  max-width: 120px;
+  margin: 16px auto;
+  border-top: 2px solid var(--principal);
+}
+body > div sup {
+  vertical-align: baseline;
+  font-size: 1rem;
+  font-weight: 600;
+}
+body > div iframe {
+  display: block;
+  width: 100%;
+  max-width: var(--ancho);
+  height: 450px;
+  margin: 30px auto 0;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: var(--oscuro);
+  color: #cfd8e3;
+  text-align: center;
+  padding: 30px 20px;
+}
+footer p { margin: 0; font-size: .95rem; }
+
+/* ============================================
+   RESPONSIVE (tablet y celular)
+   ============================================ */
+@media (max-width: 900px) {
+  body > section:first-of-type { grid-template-columns: 1fr; }
+  body > section:first-of-type > img {
+    grid-row: auto;
+    height: 260px !important;
+    margin-bottom: 24px;
+  }
+  .tarjeta-texto1, .tarjeta-texto2 { align-self: auto; }
+
+  .collage2 {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: 160px;
+  }
+  .foto2--grande { grid-column: span 2; grid-row: span 1; }
+  .foto2--vertical { grid-row: span 1; }
+
+  main blockquote {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-flow: row;
+  }
+  main blockquote small { margin-bottom: 24px; }
+}
+
+@media (max-width: 600px) {
+  h2 { font-size: 1.6rem; }
+  nav a { padding: 14px 14px; font-size: .95rem; }
+  body > section, body > article, body > aside,
+  body > main, body > div { padding-top: 44px; padding-bottom: 44px; }
+  body > div iframe { height: 320px; }
+}
+
+/* =========================================================
+   PÁGINA 2 (segunda_pagina.html)  ·  pegar AL FINAL
+   ========================================================= */
+
+/* Fuente (opcional): cámbiala si el boceto usa otra */
+body { font-family: "Roboto", "Segoe UI", Arial, sans-serif; }
+
+/* ---------- Pestaña activa del menú ("Estas aqui") ---------- */
+nav a b { color: var(--principal); }
+nav a:has(> b) { border-bottom-color: var(--principal); }
+
+/* ---------- Título + collage + texto de bienvenida ---------- */
+main > header {
+  background: transparent;   /* anula el fondo oscuro del header del logo */
+  text-align: center;
+}
+main > header h1 {
+  font-size: 2.4rem;
+  margin: 0 0 30px;
+}
+main > header h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: var(--principal);
+  border-radius: 4px;
+}
+main > header > p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* Collage (mismo diseño que .collage2 de la página de inicio) */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 190px);
+  gap: 14px;
+  margin-bottom: 30px;
+}
+.foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  transition: transform .3s;
+}
+.foto:hover { transform: scale(1.03); }
+.foto--grande { grid-column: span 2; grid-row: span 2; }
+.foto--vertical { grid-row: span 2; }
+
+/* Línea separadora entre la bienvenida y los servicios */
+main > hr {
+  max-width: 120px;
+  margin: 40px auto;
+  border-top: 2px solid var(--principal);
+}
+
+/* ---------- SERVICIOS (motos, autos, camionetas) ---------- */
+/* Tu HTML deja varios <ol> sin cerrar y quedan metidos unos dentro
+   de otros. Con "display: contents" los <ol> desaparecen del diseño
+   y todo se acomoda en una sola cuadrícula. */
+main > section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  text-align: center;
+}
+main > section ol {
+  display: contents;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+main > section li { display: flex; list-style: none; }
+
+/* Imágenes, títulos y textos ocupan todo el ancho... */
+main > section > *,
+main > section ol > * { grid-column: 1 / -1; }
+/* ...y las tarjetas se reparten en columnas */
+main > section ol > li,
+main > section ol > .tarjeta-servicio { grid-column: auto; }
+
+main > section hr { display: none; }
+
+main > section img {
+  width: 100%;
+  height: 300px !important;   /* anula el style="height:auto" del HTML */
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+  margin-top: 48px;
+}
+main > section > img:first-child { margin-top: 0; }
+
+main > section h2 { margin: 6px 0 0; }
+
+main > section > p,
+main > section ol > p {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+}
+
+/* Subtítulo "MOTOS 50 cc hasta 290 cc", etc. */
+main > section h3 {
+  justify-self: center;
+  margin: 10px 0 0;
+  padding: 10px 32px;
+  background: var(--principal);
+  color: #fff;
+  border-radius: 50px;
+  font-size: 1.05rem;
+  letter-spacing: .5px;
+}
+
+/* Tarjetas de cada servicio */
+.tarjeta-servicio {
+  flex: 1;
+  background: var(--claro);
+  border: 1px solid #e1e8f0;
+  border-left: 5px solid var(--principal);
+  border-radius: var(--radio);
+  padding: 22px 24px;
+  text-align: left;
+  transition: .2s;
+}
+.tarjeta-servicio:hover {
+  background: #fff;
+  transform: translateY(-4px);
+  box-shadow: var(--sombra);
+}
+.tarjeta-servicio h4 {
+  margin: 0 0 8px;
+  color: var(--oscuro);
+  font-size: 1.1rem;
+}
+.tarjeta-servicio p { margin: 0; font-size: .95rem; }
+
+/* ---------- VIDEO ---------- */
+body > section:only-of-type:has(> video) {
+  display: block;            /* anula la cuadrícula de la página de inicio */
+  background: var(--claro);
+  text-align: center;
+}
+video {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #000;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .collage {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: none;
+    grid-auto-rows: 160px;
+  }
+  .foto--grande { grid-column: span 2; grid-row: span 1; }
+  .foto--vertical { grid-row: span 1; }
+  main > section img { height: 240px !important; }
+}
+@media (max-width: 600px) {
+  main > header h1 { font-size: 1.8rem; }
+  main > section { grid-template-columns: 1fr; }
+  main > section img { height: 200px !important; }
+}
+
+/* =========================================================
+   PÁGINA 3 (tercera_pagina.html)  ·  pegar AL FINAL
+   ========================================================= */
+
+/* ---------- Título + texto + foto de contacto (2.º <header>) ---------- */
+header + header {
+  background: transparent;   /* anula el fondo oscuro del header del logo */
+  text-align: center;
+  padding: 64px max(20px, calc((100% - var(--ancho)) / 2)) 40px;
+}
+header + header h1 {
+  font-size: 2.4rem;
+  margin: 0 0 14px;
+}
+header + header h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: var(--principal);
+  border-radius: 4px;
+}
+header + header p {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+}
+header + header img {
+  height: 360px !important;  /* anula el style="height:auto" del HTML */
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+/* ---------- VIDEO ---------- */
+/* Después de </video> tu HTML tiene un "." suelto: lo hacemos invisible */
+body > article:has(> video) { font-size: 0; }
+body > article video { font-size: 1rem; }
+
+/* ---------- DIRECCIÓN Y TELÉFONO (tarjetas) ---------- */
+main:has(> p > strong) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+main:has(> p > strong) > p {
+  max-width: none;
+  margin: 0;
+  padding: 24px 28px;
+  background: var(--claro);
+  border: 1px solid #e1e8f0;
+  border-left: 5px solid var(--principal);
+  border-radius: var(--radio);
+  text-align: left;
+  font-size: 1.05rem;
+}
+main:has(> p > strong) > p strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--oscuro);
+  font-size: 1.15rem;
+}
+
+/* ---------- REDES SOCIALES ---------- */
+/* anula la cuadrícula de 2 columnas de la página de inicio */
+body > section:only-of-type:has(> ul) {
+  display: block;
+  background: var(--claro);
+  text-align: center;
+}
+body > section:only-of-type:has(> ul) > p {
+  max-width: 760px;
+  margin: 0 auto 26px;
+  font-size: 1.1rem;
+}
+body > section:only-of-type:has(> ul) ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+body > section:only-of-type:has(> ul) br { display: none; }
+body > section:only-of-type:has(> ul) li a {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--principal);
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: .2s;
+}
+body > section:only-of-type:has(> ul) li a:hover {
+  background: var(--principal-oscuro);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(31, 111, 209, .35);
+}
+
+/* ---------- FORMULARIO DE RESERVA ---------- */
+/* El título, el texto y el formulario son hijos sueltos del <body>:
+   los 3 llevan el mismo fondo para que se vean como una sola franja */
+body > h2 {
+  margin: 0;
+  padding: 64px 20px 24px;
+  background: var(--claro);
+}
+body > p {
+  margin: 0;
+  padding: 0 max(20px, calc((100% - 760px) / 2)) 32px;
+  background: var(--claro);
+  text-align: center;
+  font-size: 1.1rem;
+}
+body > form {
+  margin: 0;
+  padding: 0 max(20px, calc((100% - 700px) / 2)) 64px;
+  background: var(--claro);
+  text-align: left;
+}
+body > form hr { display: none; }
+
+body > form label {
+  display: block;
+  margin: 20px 0 6px;
+  font-weight: 600;
+  color: var(--oscuro);
+}
+body > form label:first-of-type { margin-top: 0; }
+
+body > form input,
+body > form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  color: var(--texto);
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  transition: .2s;
+}
+body > form input:focus,
+body > form textarea:focus {
+  outline: none;
+  border-color: var(--principal);
+  box-shadow: 0 0 0 3px rgba(31, 111, 209, .2);
+}
+body > form textarea { resize: vertical; min-height: 120px; }
+
+body > form button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 16px;
+  font-size: 1.05rem;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  main:has(> p > strong) { grid-template-columns: 1fr; }
+  header + header img { height: 240px !important; }
+}
+@media (max-width: 600px) {
+  header + header { padding-top: 44px; }
+  header + header h1 { font-size: 1.8rem; }
+  body > h2 { padding-top: 44px; }
+  body > form { padding-bottom: 44px; }
 }
