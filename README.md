@@ -1,163 +1,223 @@
 # P-gina-web-Autolavado-GT-ELOHIM
-Página web diseñada para dar a conocer información del negocio.
 
-Nombre de tu negocio sitio web
+Página web diseñada para dar a conocer la información del negocio **Autolavado GT ELOHIM**.
 
-Repositorio público del proyecto entregables en HTML y CSS
-> Sitio web desarrollado para [Nombre del Negocio Local], optimizado para dispositivos móviles y enfocado en la conversión y contacto directo.
+Repositorio público del proyecto: entregables en HTML y CSS.
 
----
-
-Enlaces del proyecto
-
-- 🔗 **Sitio Web (GitHub Pages):** [Agrega tu enlace aquí si lo desplegaste]
-- 📁 **Repositorio:** [Enlace a tu repositorio público de GitHub]
+> Sitio web desarrollado para **Autolavado GT ELOHIM** (Bucaramanga, Santander), optimizado para dispositivos móviles y enfocado en mostrar los servicios y facilitar el contacto directo con los clientes.
 
 ---
 
-1. El proyecto
+## Enlaces del proyecto
 
-- **Negocio:** [Ejemplo: Panadería La Espiga / Taller de Motos Rápido]
-- **Público Objetivo:** [Ejemplo: Vecinos del barrio, jóvenes de 18-40 años que buscan pedir a domicilio por WhatsApp, etc.]
-- **Necesidad del Cliente:** [Explica la problemática que resuelve el sitio web, por ejemplo: El cliente solo vendía por WhatsApp e Instagram y perdía ventas por no mostrar su menú, precios ni ubicación clara.]
+- 📁 **Repositorio:** [[Enlace a tu repositorio público de GitHub](https://github.com/Mari-Reyes/P-gina-web-Autolavado-GT-ELOHIM.git)]
 
 ---
 
-2.  Estructura
+## 1. El proyecto
 
-Estructura de archivos
+- **Negocio:** Autolavado GT ELOHIM, centro de autodetailing para motocicletas, automóviles y camionetas. Está ubicado en la Calle 45 5W - 47, barrio Campo Hermoso, Bucaramanga, Santander.
+- **Público objetivo:** Propietarios de motocicletas, automóviles y camionetas de Bucaramanga que buscan un lavado y detallado profesional, con precios claros según el tipo de vehículo.
+- **Necesidad del cliente:** Contar con un sitio web propio donde los clientes puedan conocer el negocio, consultar los servicios con sus precios, ver los horarios y la ubicación, mirar videos del proceso y del resultado, reservar una cita y llegar fácilmente a sus redes sociales (Facebook, Instagram y TikTok).
+
+### Páginas del sitio
+
+| Archivo | Contenido |
+|---|---|
+| `index.html` | Inicio: quiénes somos, meta, resumen de servicios, métodos de pago, testimonios, horarios y mapa. |
+| `segunda_pagina.html` | Servicios: lista de precios de motos, automóviles y camionetas, y video del proceso. |
+| `tercera_pagina.html` | Contacto: datos del negocio, redes sociales, video del resultado, mapa y formulario de reserva de cita. |
+
+---
+
+## 2. Estructura
+
+### Estructura de archivos
+
 ```text
-nombre-del-negocio/
+P-gina-web-Autolavado-GT-ELOHIM/
 ├── index.html
-├── segunda-pagina.html
+├── segunda_pagina.html
+├── tercera_pagina.html
 ├── README.md
-├── css/
+├── CSS/
 │   └── styles.css
+├── fonts/
+│   ├── Sora-VariableFont_wght.ttf
+│   └── GoogleSans-VariableFont_GRAD_opsz_wght.ttf
 ├── images/
 ├── video/
+│   ├── Proceso.mp4
+│   └── Resultado.mp4
 └── capturas/
+```
 
-Justificación de Etiquetas Semánticas
+### Justificación de Etiquetas Semánticas
 
-- **<header>** y **<nav>**: Contienen el logotipo principal y la barra de navegación que permite moverse entre las dos páginas de forma fluida.
+- **`<nav>`**: contiene el menú que permite moverse entre las tres páginas. La página donde está el usuario se marca con "Estas aqui".
+- **`<header>`**: contiene el logotipo del negocio en todas las páginas y, en servicios y contacto, el título y la introducción de la página.
+- **`<main>`**: delimita el contenido central de cada página: los testimonios (inicio), el título y la lista de servicios (servicios) y los datos de contacto (contacto).
+- **`<section>`**: agrupa por temas los bloques principales: sobre nosotros y meta, servicios, horarios, redes sociales y videos.
+- **`<article>`**: contiene bloques con sentido propio, como "Quiénes somos" y el collage de fotos de servicios.
+- **`<aside>`**: contiene los métodos de pago, que son información complementaria al resto de la página.
+- **`<blockquote>`, `<cite>`, `<abbr>` y `<mark>`**: dan significado a los testimonios, a la dirección, a la abreviatura "Testimonios" y a la calificación destacada.
+- **`<table>`**: muestra los horarios de atención en filas y columnas.
+- **`<video>` y `<form>`**: el primero reproduce los videos de la carpeta `video/` y el segundo recibe la reserva de citas.
+- **`<footer>`**: ubicado al final, incluye los derechos de autor.
 
-- **<main>**: Delimita el contenido central único de cada página para mejorar la accesibilidad y SEO.
+---
 
-- **<section>** y **<article>**: Agrupan temáticamente los bloques principales (servicios, testimonios, ubicación) y cada una de las tarjetas individuales de productos/servicios.
+## 3. Sistema Visual
 
-**<footer>**: Ubicado al final para incluir derechos de autor, enlaces secundarios y redes sociales.
+### Variables CSS (`:root`)
 
-
-
-3.  Sistema Visual
-Variables CSS (:root)
-
+```css
 :root {
-  --color-principal: #2B2D42;
-  --color-secundario: #8D99AE;
-  --color-acento: #D90429;
-  --color-fondo: #F8F9FA;
-  --fuente-titulo: 'Shrikhand', cursive;
-  --fuente-cuerpo: 'Inter', sans-serif;
-  --espacio-base: 1rem;
+  --fondo: #000000;
+  --banda: #ffffff;
+  --tinta: #111111;
+  --tarjeta: #1d0f0f;
+  --borde: #4a2323;
+  --texto: #ffffff;
+
+  --principal: #961616;
+  --principal-hover: #b81d1d;
+  --acento: #c62a2a;
+  --enlace: #ff7b7b;
+
+  --fuente-titulos: "Sora", "Segoe UI", Arial, sans-serif;
+  --fuente-texto: "Google Sans", "Segoe UI", Arial, sans-serif;
 }
+```
 
-Justificación del Diseño
-Colores: [Explica por qué los elegiste; ej. Se seleccionó una paleta de tonos oscuros combinados con un color de acento llamativo para destacar los botones de acción].
+### Justificación del Diseño
 
-Tipografías: [Explica la tipografía; ej. Se usó una fuente llamativa para los títulos que refleja la personalidad del negocio y una fuente sans-serif limpia para garantizar una lectura ágil en celulares].
+**Colores:** Se eligió un fondo negro con letras blancas para transmitir la imagen de brillo y alta gama que busca un servicio de detallado. El menú y algunas franjas son blancos para alternar el ritmo de la página y separar las secciones. El rojo `#961616` es el color de acento de los botones y llamados a la acción, y se usa junto a `#3f1212` en el degradado de tres colores del pie de página (`#961616`, `#3f1212`, `#961616`). Sobre fondo negro se usa un rojo más claro (`#ff7b7b`) en los enlaces para que se lean bien.
 
+**Tipografías:** Los títulos, el menú y los botones usan **Sora**, una fuente geométrica y ancha que da personalidad al negocio. Los párrafos, listas y formularios usan **Google Sans**, una fuente sans-serif limpia que se lee con facilidad en celulares. Ambas se cargan desde archivos locales con `@font-face` y `font-display: swap`, así el texto se ve mientras la fuente termina de cargar.
 
+---
 
-4. Especificidad (Conflictos Reales)
-Conflicto 1: Color del precio en tarjetas de oferta
-Regla A: .tarjeta p → Especificidad: (0, 1, 1)
+## 4. Especificidad (Conflictos Reales)
 
-Regla B: .tarjeta--promo .precio → Especificidad: (0, 2, 0)
+### Conflicto 1: Barra roja bajo los títulos
 
-Resultado: Gana la Regla B por tener 2 clases frente a 1 clase y 1 etiqueta.
+- **Regla A:** `h2::after` → Especificidad: (0, 0, 2). Dibuja la barra roja bajo cada título.
+- **Regla B:** `.tarjeta-texto1 h2::after` → Especificidad: (0, 1, 2). Oculta esa barra con `display: none`.
+- **Resultado:** Gana la Regla B por tener una clase más. Así, el título dentro de la tarjeta roja no muestra la barra, que no se vería sobre el fondo rojo.
 
-📸 Captura:
+📸 Captura: `capturas/especificidad-1.png`
 
-Conflicto 2: Estilo de botones de contacto
-Regla A: main .btn → Especificidad: (0, 1, 1)
+### Conflicto 2: Altura de las imágenes (estilo en línea frente a `!important`)
 
-Regla B: .contacto__btn-enviar → Especificidad: (0, 1, 0)
+- **Regla A:** `style="max-width: 100%; height: auto;"` escrito en la etiqueta `<img>` del HTML → Especificidad: (1, 0, 0, 0), la más alta de las declaraciones normales.
+- **Regla B:** `body > section:has(> .tarjeta-texto1) > img { height: 100% !important; }` → Especificidad: (0, 1, 3).
+- **Resultado:** Gana la Regla B porque `!important` tiene prioridad sobre cualquier declaración normal, incluso sobre el estilo en línea. Así la foto ocupa toda la altura de las dos tarjetas de texto sin modificar el HTML.
 
-Resultado: Gana la Regla A por tener 1 clase y 1 etiqueta frente a 1 sola clase.
+📸 Captura: `capturas/especificidad-2.png`
 
-📸 Captura:
+### Conflicto 3: Resolución por Orden (Empate de Especificidad)
 
-Conflicto 3: Resolución por Orden (Empate de Especificidad)
-Regla A: .menu__link → Especificidad: (0, 1, 0)
+- **Regla A:** `main > section img { height: 300px !important; }` → Especificidad: (0, 0, 3).
+- **Regla B:** `@media (max-width: 900px) { main > section img { height: 240px !important; } }` → Especificidad: (0, 0, 3).
+- **Resultado:** Al tener la misma especificidad, se aplica la Regla B porque aparece escrita después en la hoja de estilos (`styles.css`). Por eso las fotos de servicios bajan de 300px a 240px en pantallas de 900px o menos, y a 200px en pantallas de 600px o menos.
 
-Regla B: .menu__link--activo → Especificidad: (0, 1, 0)
+📸 Captura: `capturas/especificidad-3.png`
 
-Resultado: Al tener la misma especificidad, se aplica la Regla B porque aparece escrita después en la hoja de estilos (styles.css).
+---
 
-📸 Captura:
+## 5. Herencia en CSS
 
+**Propiedad heredada (`color` / `font-family`):**
 
+Se definieron `font-family` y `color` en la regla del `body`, y los párrafos, listas y etiquetas del formulario las heredaron sin repetirlas. Los títulos solo cambian la fuente con `font-family: var(--fuente-titulos)`.
 
-5. Herencia en CSS
-Propiedad Heredada (color / font-family):
+Las variables CSS también se heredan. En las franjas blancas se redefine `--texto: var(--tinta)`, y todos los hijos que usan `color: var(--texto)` (títulos, párrafos y etiquetas) pasan a letra oscura automáticamente, sin escribir una regla para cada uno.
 
-Se definió font-family en la regla del body y todos los elementos hijos (párrafos, listas y encabezados) la heredaron automáticamente sin necesidad de repetirla.
+**Propiedad no heredada (`border` / `padding` / `margin` / `background`):**
 
-Propiedad No Heredada (border / padding / margin):
+Se aplicó `padding: 64px` a cada `<section>`, pero los elementos hijos (títulos, párrafos e imágenes) no heredaron ese espacio interior y mantienen el suyo. Lo mismo ocurre con `background`: la franja blanca no pinta de blanco a las tarjetas oscuras que están dentro de ella.
 
-Se aplicó un padding: 2rem a una <section>, pero los elementos hijos dentro de ella no heredaron dicho espacio interior, manteniendo su propio modelo de cajas.
+---
 
+## 6. Modelo de Cajas
 
+### Cálculo del Ancho Total de un Componente
 
-6. Modelo de Cajas
-Cálculo del Ancho Total de un Componente
-Componente: .tarjeta-producto
+**Componente:** `.tarjeta-servicio` (tarjeta de cada servicio)
 
-Ancho del contenido (width): 300px
+- Ancho mínimo de la columna de la cuadrícula: `minmax(260px, 1fr)` → **260px**
+- Padding: 24px (izquierda) + 24px (derecha) = 48px
+- Border: 5px (izquierda) + 1px (derecha) = 6px
+- Se usa `box-sizing: border-box` en todos los elementos (`* { box-sizing: border-box; }`), por lo que el ancho total real es **260px** y el contenido ocupa 260px − 48px − 6px = **206px**.
+- Sin `border-box` habría que declarar `width: 206px` para obtener los mismos 260px, y el cálculo sería 206px + 48px + 6px = 260px.
 
-Padding: 15px (izquierda) + 15px (derecha) = 30px
+### Solapamiento de Márgenes (Margin Collapse)
 
-Border: 2px (izquierda) + 2px (derecha) = 4px
+En "Quiénes somos", el último párrafo de `.tarjeta-texto4` tiene `margin-bottom: 10px` y el formulario que le sigue tiene `margin-top: 28px`. Como `.tarjeta-texto4` no tiene padding ni borde, el margen del párrafo se solapa con el del formulario y el espacio real entre ambos es de **28px** (el valor mayor) en lugar de sumarse a 38px.
 
-Ancho Total Real: 300px + 30px + 4px = 334px (al no usar box-sizing: border-box).
+---
 
-Solapamiento de Márgenes (Margin Collapse)
-El margin-bottom: 20px del título <h2> y el margin-top: 15px del primer párrafo <p> se solapan, resultando en un espacio real de 20px entre ellos (el valor mayor) en lugar de sumarse a 35px.
+## 7. Selectores (Pseudoclases Estructurales)
 
-7. Selectores (Pseudoclases Estructurales)
-Pseudoclase analizada: :nth-child(even) o :nth-child(2n)
+**Pseudoclases analizadas:** `:nth-child(5):last-child` y `:first-child`
 
-Funcionamiento: Evalúa todos los elementos hermanos dentro de un mismo contenedor padre. Cuenta el orden de cada hijo y aplica los estilos únicamente a los elementos que ocupan posiciones pares (2, 4, 6...), permitiendo alternar colores de fondo entre filas o tarjetas.
+**Funcionamiento:**
 
-8. Responsive Design (@media)
-Breakpoint: @media (max-width: 768px)
+- `.collage2 > :nth-child(5):last-child` evalúa los hijos del collage de fotos y selecciona el elemento que es, a la vez, el quinto y el último. Es decir, solo se aplica cuando hay exactamente 5 fotos. En ese caso la última foto ocupa 2 columnas (`grid-column: span 2`) y no queda un hueco vacío en la cuadrícula.
+- `main > section > img:first-child` selecciona la primera imagen de la lista de servicios para quitarle el margen superior que sí llevan las demás imágenes (las de automóviles y camionetas).
+- `body > form label:first-of-type` selecciona la primera etiqueta del formulario de reserva para que no tenga margen superior.
 
-Cambios aplicados:
+Además se usó la pseudoclase relacional `:has()` para elegir bloques por su contenido, por ejemplo `body > section.contenedor-video` y `body > section:has(> table)` para las franjas de video y de horarios.
 
-La navegación cambia de alineación horizontal a un menú apilado verticalmente.
+---
 
-Las rejillas y columnas pasan a una sola columna para adaptarse cómodamente a pantallas de 360 px de ancho sin generar desbordamiento horizontal.
+## 8. Responsive Design (@media)
 
-Los tamaños de letra de los títulos principales disminuyen de 2.5rem a 1.8rem.
+**Breakpoints:** `@media (max-width: 900px)` para tablets y `@media (max-width: 600px)` para celulares.
 
-9. Problemas y Soluciones
-Problema 1: Desbordamiento horizontal en celulares (pantalla a 360px).
+**Cambios aplicados:**
 
-Causa: Las imágenes y tablas tenían un ancho fijo en píxeles que superaba el ancho del dispositivo.
+- **Hasta 900px:**
+  - La sección "sobre nosotros" pasa de dos columnas a una.
+  - El collage de fotos pasa de 5 columnas a 2.
+  - Los testimonios pasan de 3 columnas a una sola.
+  - Las tarjetas de dirección y teléfono se apilan.
+  - Las fotos reducen su altura.
+- **Hasta 600px:**
+  - Los títulos principales bajan de 2.4rem a 1.8rem y los de sección de 2rem a 1.6rem.
+  - El menú reduce su relleno y el tamaño de letra para que quepan sus tres enlaces.
+  - Las secciones reducen su espacio vertical de 64px a 44px.
+  - La lista de servicios pasa a una sola columna.
+  - El mapa baja de 450px a 320px de alto.
+- **En todos los tamaños:** las imágenes y los videos usan `width: 100%`, y el mapa usa `width: 100%` en CSS, que prevalece sobre el `width="600"` del HTML.
 
-Solución: Se agregó max-width: 100% y height: auto a las imágenes, y se envolvió la tabla en un contenedor con overflow-x: auto.
+---
 
-Problema 2: El mapa/video en iframe no se adaptaba al ancho de la pantalla.
+## 9. Problemas y Soluciones
 
-Causa: El atributo width="600" en HTML forzaba un ancho fijo.
+**Problema 1:** Las imágenes no aparecían en la página.
 
-Solución: Se removieron las dimensiones fijas del HTML y se controló desde CSS con width: 100% y aspect-ratio: 16 / 9.
+- **Causa:** El nombre o la ruta del archivo en el HTML no coincidía exactamente con el archivo real (mayúsculas, extensión o carpeta). Por ejemplo, el logo se llama `Logo.png` y el póster del video lo busca como `logo.png`; en GitHub Pages, que distingue mayúsculas, uno de los dos no carga.
+- **Solución:** Se revisaron los nombres exactos de los archivos de la carpeta `images/` y se verificó en la pestaña **Network** de las herramientas del navegador (F12) cuáles daban error 404.
 
-10. Capturas de Pantalla
-Vista Escritorio
-Inicio (index.html)
-Segunda Página (contacto.html / servicios.html)
-Vista Móvil (360px de ancho)
-Inicio (index.html)
-Segunda Página (contacto.html / servicios.html)
+**Problema 2:** La lista de servicios se desordenaba y se veía muy anidada.
+
+- **Causa:** Varias listas `<ol>` y etiquetas `<div>` quedaron sin cerrar en el HTML, y el navegador las anidó unas dentro de otras.
+- **Solución:** Se aplicó `display: contents` a los `<ol>` en CSS. Así desaparecen del diseño y las tarjetas se acomodan en una sola cuadrícula, sin modificar el HTML.
+
+**Problema 3:** Las fuentes personalizadas no se cargaban.
+
+- **Causa:** El enlace de Google Fonts del `<head>` estaba cortado, así que el navegador nunca descargaba las tipografías.
+- **Solución:** Se usaron los archivos `.ttf` del proyecto con `@font-face`, declarando el rango de pesos de cada fuente variable.
+
+**Problema 4:** Los videos no se mostraban con el tamaño adecuado.
+
+- **Causa:** El `<video>` no tenía dimensiones definidas y los estilos de la sección de video dependían de la posición de la sección. En la página de contacto hay dos `<section>`, y esas reglas dejaron de aplicarse.
+- **Solución:** Se estilaron por clase (`.contenedor-video` y `.video-responsive`) con `width: 100%`, `max-width`, `aspect-ratio` y `max-height`. El video ahora se ve completo en escritorio y celular, y los selectores no dependen del orden de las secciones.
+
+**Problema 5:** Un estilo pensado para una sección se aplicaba a otra.
+
+- **Causa:** Se seleccionaban las secciones por su posición (`:first-of-type`, `:nth-of-type`, `:only-of-type`). Al agregar una segunda `<section>` en la página de contacto, las reglas cambiaron de destino.
+- **Solución:** Se pasó a seleccionar por contenido con `:has()`, por ejemplo `body > section:has(> table)` para los horarios.
+
